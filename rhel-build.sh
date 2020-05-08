@@ -12,7 +12,7 @@ cd lamp_image
 sudo podman rmi "localhost/test_lamp_build"
 
 ## Commands to build the image
-sudo podman build -t test_lamp_build -f ./lamp.DockerFile
+sudo podman build --tag rhel8:lamp -f ./lamp.DockerFile
 
 ##
 cd ~
@@ -22,4 +22,8 @@ rm -rf  ~/lamp_image
 
 ## List the imaes
 podman images
+
+
+## Run the podman container
+sudo podman run -p 8080:80 --name lamp --rm rhel8:lamp
 
